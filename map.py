@@ -1,10 +1,13 @@
 import folium
-import pandas
+import pandas 
 
 data = pandas.read_csv("volcanoes_usa.txt")
 lat = list(data["LAT"])
 lon = list(data["LON"])
 elev = list(data["ELEV"])
+
+print("hello world")
+#new machine test
 
 def color_pro(elevation): #this will allow the elevation dictate color of the markers 
     if elevation < 1000:
@@ -23,7 +26,7 @@ for lt, ln, el in zip(lat, lon, elev): #this will have lt go through the first i
 fgp = folium.FeatureGroup(name="Population")
 
 
-fg.add_child(folium.GeoJson(data=open('/Users/drosa/bootcamp/webmap/world.json', 'r', encoding='utf-8-sig').read(),
+fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
 style_function=lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 10000000
 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
 
