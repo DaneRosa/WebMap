@@ -1,5 +1,5 @@
 import folium
-import pandas 
+import pandas
 
 data = pandas.read_csv("volcanoes_usa.txt")
 lat = list(data["LAT"])
